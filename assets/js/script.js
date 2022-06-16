@@ -5,12 +5,13 @@ import initDropDown from './modules/dropdown-menu.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initFuncionamento from './modules/funcionamento.js'
 import initFetchAnimais from './modules/fetch-animais.js'
-import initScroll from './modules/scroll-suave.js'
+import ScrollSmooth from './modules/scroll-suave.js'
 import initScrollReveal from './modules/scroll-reveal.js'
 import initAccordion from './modules/accordion.js'
 import initFetchBitcoin from './modules/fetch-bitcoin.js'
 
-initScroll()
+const scrollSmooth = new ScrollSmooth('[data-js="menu"] a[href^="#"]')
+scrollSmooth.init()
 initScrollReveal()
 initAccordion()
 initTabNav()
