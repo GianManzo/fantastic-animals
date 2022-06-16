@@ -1,15 +1,22 @@
 /** SCROLL SUAVE */
 
-export default function initScroll() {
-  function scrollToSection(event) {
+export default class ScrollSmooth {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links)
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' }
+    } else {
+      this.options = options
+    }
+    this.scrollToSection = this.scrollToSection.bind(this)
+  }
+
+  scrollToSection(event) {
     event.preventDefault()
     const href = event.currentTarget.getAttribute('href')
     const section = document.querySelector(href)
 
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
+    section.scrollIntoView(this.options)
 
     /** FORMA ALTERNATIVA */
     // const top = section.offsetTop
@@ -18,10 +25,15 @@ export default function initScroll() {
     //   behavior: 'smooth'
     // })
   }
-  const linksInternos = document.querySelectorAll(
-    '[data-js="menu"] a[href^="#"]'
-  )
-  linksInternos.forEach(element => {
-    element.addEventListener('click', scrollToSection)
-  })
+
+  addLinkEvent() {
+    this.linksInternos.forEach(element => {
+      element.addEventListener('click', this.scrollToSection)
+    })
+  }
+
+  init() {
+    if (this.linksInternos.length) this.addLinkEvent()
+    return this
+  }
 }
