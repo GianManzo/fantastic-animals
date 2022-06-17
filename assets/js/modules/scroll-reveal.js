@@ -1,11 +1,12 @@
-/** SCROLL REVEAL */
+import debounce from './debouce.js'
 
+/** SCROLL REVEAL */
 export default class ScrollReveal {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections)
     this.windowMetade = window.innerHeight * 0.6
 
-    this.checkDistance = this.checkDistance.bind(this)
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50)
   }
   // distancia em relação ao topo
 
