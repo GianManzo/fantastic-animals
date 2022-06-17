@@ -5,23 +5,40 @@ export default class ScrollReveal {
     this.sections = document.querySelectorAll(sections)
     this.windowMetade = window.innerHeight * 0.6
 
-    this.scrollReveal = this.scrollReveal.bind(this)
+    this.checkDistance = this.checkDistance.bind(this)
+  }
+  // distancia em relação ao topo
+
+  getDistance() {
+    this.distance = [...this.sections].map(element => {
+      const offset = element.offsetTop
+      return {
+        element,
+        offset: Math.floor(offset - this.windowMetade)
+      }
+    })
   }
 
-  scrollReveal() {
-    this.sections.forEach(element => {
-      const sectionTop = element.getBoundingClientRect().top
-      const sectionVisible = sectionTop - this.windowMetade < 0
-      if (sectionVisible) element.classList.add('active')
-      else if (element.classList.contains('active')) {
-        element.classList.remove('active')
+  checkDistance() {
+    this.distance.forEach(item => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add('active')
+      } else if (item.element.classList.contains('active')) {
+        item.element.classList.remove('active')
       }
     })
   }
 
   init() {
-    this.scrollReveal()
-    window.addEventListener('scroll', this.scrollReveal)
+    if (this.sections.length) {
+      this.getDistance()
+      this.checkDistance()
+      window.addEventListener('scroll', this.checkDistance)
+    }
     return this
+  }
+
+  stop() {
+    window.removeEventListener('scroll', this.checkDistance)
   }
 }
