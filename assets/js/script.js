@@ -6,7 +6,7 @@ import Tooltip from './modules/tooltip.js'
 import fetchAnimais from './modules/fetch-animais.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
 import ScrollReveal from './modules/scroll-reveal.js'
-import initDropDown from './modules/dropdown-menu.js'
+import DropDown from './modules/dropdown-menu.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initFuncionamento from './modules/funcionamento.js'
 
@@ -37,6 +37,9 @@ fetchBitcoin('https://blockchain.info/ticker', '.btcPreco')
 
 const scrollReveal = new ScrollReveal('[data-anima="scroll"]')
 scrollReveal.init()
-initDropDown()
+
+const dropdown = new DropDown('[data-dropdown]')
+dropdown.init()
+
 initMenuMobile()
 initFuncionamento()
