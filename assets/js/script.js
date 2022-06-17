@@ -7,7 +7,7 @@ import fetchAnimais from './modules/fetch-animais.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
 import ScrollReveal from './modules/scroll-reveal.js'
 import DropDown from './modules/dropdown-menu.js'
-import initMenuMobile from './modules/menu-mobile.js'
+import MenuMobile from './modules/menu-mobile.js'
 import initFuncionamento from './modules/funcionamento.js'
 
 const scrollSmooth = new ScrollSmooth('[data-js="menu"] a[href^="#"]')
@@ -41,5 +41,7 @@ scrollReveal.init()
 const dropdown = new DropDown('[data-dropdown]')
 dropdown.init()
 
-initMenuMobile()
+const mobileMenu = new MenuMobile('[data-menu="button"]', '[data-menu="lista"]')
+mobileMenu.init()
+
 initFuncionamento()
