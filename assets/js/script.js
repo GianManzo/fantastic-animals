@@ -8,7 +8,7 @@ import fetchBitcoin from './modules/fetch-bitcoin.js'
 import ScrollReveal from './modules/scroll-reveal.js'
 import DropDown from './modules/dropdown-menu.js'
 import MenuMobile from './modules/menu-mobile.js'
-import initFuncionamento from './modules/funcionamento.js'
+import Funcionamento from './modules/funcionamento.js'
 
 const scrollSmooth = new ScrollSmooth('[data-js="menu"] a[href^="#"]')
 scrollSmooth.init()
@@ -32,9 +32,6 @@ modal.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
-fetchAnimais('../../json/animaisapi.json', '.numeros-grid')
-fetchBitcoin('https://blockchain.info/ticker', '.btcPreco')
-
 const scrollReveal = new ScrollReveal('[data-anima="scroll"]')
 scrollReveal.init()
 
@@ -44,4 +41,8 @@ dropdown.init()
 const mobileMenu = new MenuMobile('[data-menu="button"]', '[data-menu="lista"]')
 mobileMenu.init()
 
-initFuncionamento()
+const funcionamento = new Funcionamento('[data-semana]', 'aberto')
+funcionamento.init()
+
+fetchAnimais('../../json/animaisapi.json', '.numeros-grid')
+fetchBitcoin('https://blockchain.info/ticker', '.btcPreco')
