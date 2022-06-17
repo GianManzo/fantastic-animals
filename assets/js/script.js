@@ -30,8 +30,7 @@ const modal = new Modal(
 modal.init()
 
 const tooltip = new Tooltip('[data-tooltip]')
-console.log(tooltip.init())
-
+tooltip.init()
 initDropDown()
 initMenuMobile()
 initFuncionamento()
