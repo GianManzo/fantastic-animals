@@ -6,10 +6,10 @@ export default class MenuMobile {
     this.menuList = document.querySelector(menuList)
     this.activeClass = 'active'
 
-    this.openMenu = this.openMenu.bind(this)
-
     if (events === undefined) this.events = ['touchstart', 'click']
     else this.events = events
+
+    this.openMenu = this.openMenu.bind(this)
   }
 
   openMenu() {
