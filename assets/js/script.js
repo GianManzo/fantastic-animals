@@ -9,6 +9,7 @@ import ScrollReveal from './modules/scroll-reveal.js'
 import DropDown from './modules/dropdown-menu.js'
 import MenuMobile from './modules/menu-mobile.js'
 import Funcionamento from './modules/funcionamento.js'
+import SlideNav from './modules/slide.js'
 
 const scrollSmooth = new ScrollSmooth('[data-js="menu"] a[href^="#"]')
 scrollSmooth.init()
@@ -46,3 +47,7 @@ funcionamento.init()
 
 fetchAnimais('../../json/animaisapi.json', '.numeros-grid')
 fetchBitcoin('https://blockchain.info/ticker', '.btcPreco')
+
+const slide = new SlideNav('.slide', '.slide-wrapper')
+slide.init()
+slide.addControl('.custom-controls')
