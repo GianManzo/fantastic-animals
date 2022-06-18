@@ -189,11 +189,18 @@ body {
   animation: slideDown 0.6s forwards;
 }
 [data-anima='accordion'] dt::after {
-  content: '⬎';
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url('../img/arrow-red.svg') no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 [data-anima='accordion'] dt.active::after {
-  content: '⬏ ';
+  content: '';
+  transform: rotate(-90deg);
 }
 
 @keyframes slideDown {
@@ -300,4 +307,11 @@ body {
   font-weight: bold;
   border-radius: 2px;
   margin-right: 0.271rem;
+}
+
+.arrow-black {
+  background: url('../img/arrow-black.svg') no-repeat center center;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
 }
